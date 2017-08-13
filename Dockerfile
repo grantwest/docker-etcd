@@ -10,7 +10,6 @@ RUN apk add --update ca-certificates openssl tar && \
     rm -Rf etcd.tar.gz etcd-$etcd_tag-linux-amd64 /var/cache/apk/*
 
 VOLUME      /data
-EXPOSE      2379 2380 4001 7001
+EXPOSE      2379 2380
 ADD         run.sh /bin/run.sh
-#ENTRYPOINT  ["/bin/run.sh"]
-CMD /bin/etcd
+ENTRYPOINT  ["/bin/run.sh"]
